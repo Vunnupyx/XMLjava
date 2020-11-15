@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Title</title>
+</head>
+<body>
+
+<nav class="glostick">
+    <div class="glostick__logo brown">
+        <a href="#" title="Heroku">Imposter</a>
+    </div>
+    <div class="quick-jump">
+        <input class="quick-jump__filter form-control" type="text" id="text-to-find"
+               aria-label="Книга, серия, автор, жанр, тег, издательство"
+               placeholder="Книга, серия, автор, жанр, тег, издательство" autocomplete="off" spellcheck="false"
+               dir="auto">
+        <!--               onfocus="this.placeholder=''" onblur="this.placeholder='Книга, серия, автор, жанр, тег, издательство'">-->
+        <input class="button_for_search" style="position:absolute;" type="submit"
+               onclick="javascript: FindOnPage('text-to-find',true); return false;" value=" " title="Начать поиск">
+    </div>
+    <div class="add-book">
+        <a href="#" id="create-book">Добавить книгу</a>
+    </div>
+</nav>
+
+<div class="ab-container">
+        <div id="sorting">
+            <span>Жанр:</span>
+            <div class="hide" id="sorting-dropdown">
+                <ul class="subgenre-list">
+                    <li><a href="#">Компьютерная литература</a></li>
+                    <li><a href="#">Компьютерная литература</a></li>
+                    <li><a href="#">Компьютерная литература</a></li>
+                    <li><a href="#">Компьютерная литература</a></li>
+                    <li><a href="#">Компьютерная литература</a></li>
+                </ul>
+                <span class="sorting-uparrow">Свернуть</span>
+            </div>
+        </div>
+    <div class="books-box" id="books-box">
+    <!--    <div class="line">
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/22145329-n-morgan-javascript-dlya-detey-samouchitel-po-programmirovaniu-22145329.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Ник Морган">Ник Морган</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">JavaScript для детей.</span><span class="secondString">Самоучитель по программированию</span></a>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/24499998-devid-flenagan-javascript-podrobnoe-rukovodstvo-6-e-izdanie-24499998.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Дэвид Флэнаган">Дэвид Флэнаган</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">JavaScript. Подробное</span><span class="secondString">руководство. 6-е издание</span></a>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/39158380-aditya-bhargava-grokaem-algoritmy-illustrirovannoe-posobie-dlya-p-39158380.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Адитья Бхаргава">Адитья Бхаргава</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">Грокаем алгоритмы.</span><span class="secondString"> Иллюстрированное пособие для программистов и любопытствующих</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="line">
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/60132173-dzharon-lane-komu-prinadlezhit-buduschee-mir-gde-za-informaciu-platit-budu.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Джарон Ланье">Джарон Ланье</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">Кому принадлежит</span><span class="secondString"> будущее? Мир, где за информацию платить будут вам</span></a>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/50447564-mareyn-haverbeke-vyrazitelnyy-javascript-sovremennoe-veb-programm-50447564.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Марейн Хавербеке">Марейн Хавербеке</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">Выразительный</span><span class="secondString"> JavaScript. Современное веб-программирование (pdf+epub). 3-е издание</span></a>
+                </div>
+            </div>
+            <div class="book-item">
+                <div class="cover-material">
+                    <img src="../static/images/6444478-robert-s-martin-chistyy-kod-sozdanie-analiz-i-refaktoring-6444478.jpg"
+                         alt="JavaScript для детей. Самоучитель по программированию">
+                </div>
+                <div class="author">
+                    <a href="#" title="Роберт Мартин">Роберт Мартин</a>
+                </div>
+                <div class="name">
+                    <a href="#"
+                       title="Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt."><span
+                            class="firstString">Чистый код: создание,</span><span class="secondString"> анализ и рефакторинг (pdf+epub)</span></a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!--Добавить книгу-->
+<div id="form-wrap" class="hide">
+    <div class="panel">
+        <h2 class="h3">Create book</h2>
+        <form action="/login" method="post" role="form">
+            <!--<input name="_csrf" type="hidden" value="tyI2_9W6MnFltEcmblywe0H8EYVqXVfJcxgGhz1x2fQ"/>-->
+            <div class="form-group">
+                <label for="email">Автор:</label>
+                <input autofocus="true" class="form-input" id="email" name="email" placeholder="ФИО"
+                       type="email"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Заголовок:</label>
+                <input autocomplete="off" class="form-input password" id="password" name="password"
+                       placeholder="Например: JavaScript для детей " type="password"/>
+            </div>
+            <div class="form-group">
+                <label for="а">Цена:</label>
+                <input autocomplete="off" class="form-input" id="а" name=""
+                       placeholder="RUB" type="text" oninput="this.value=validatePrice(this.value)"/>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" id="file-input" name="file"
+                       placeholder="RUB" type="file"/>
+            </div>
+            <button class="btn-lg" name="commit" type="submit" value="Log In">Отправить
+            </button>
+        </form>
+    </div>
+</div>
+
+<ul id="pagination">
+</ul>
+<script src="../static/js/app.js"></script>
+<script src="../static/js/paginator.js"></script>
+</body>
+</html>

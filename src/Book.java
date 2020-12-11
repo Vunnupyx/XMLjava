@@ -1,16 +1,17 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Book {
+public class Book implements Serializable {
     private String id;
     private String author;
     private String title;
     private String genre;
-    private Integer price;
+    private Double price;
     private LocalDate publish_date;
     private String description;
 
     public Book(){}
-    public Book(String id, String author, String title, String genre, Integer price, LocalDate publish_date, String description) {
+    public Book(String id, String author, String title, String genre, Double price, LocalDate publish_date, String description) {
         this.id = id;
         this.author = author;
         this.title = title;
@@ -52,11 +53,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

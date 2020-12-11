@@ -13,7 +13,9 @@ import javax.xml.transform.stream.StreamResult;
 import java.util.ArrayList;
 
 public class DOMCreater {
-    public static void create(ArrayList<Book> bks) {
+    private double sumPrice;
+
+    public void create(ArrayList<Book> bks) {
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -54,15 +56,21 @@ public class DOMCreater {
                 description.appendChild(doc.createTextNode(bks.get(i).getDescription()));
                 book.appendChild(description);
 
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource source = new DOMSource(doc);
-                StreamResult result = new StreamResult("createBooks.xml");
-                transformer.transform(source, result);
+                this.sumPrice += bks.get(i).getPrice();
             }
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult("createBooks.xml");
+            transformer.transform(source, result);
+
 
         } catch (ParserConfigurationException | TransformerException e) {
             e.printStackTrace();
         }
+    }
+
+    public Double getSumPrice() {
+        return sumPrice;
     }
 }

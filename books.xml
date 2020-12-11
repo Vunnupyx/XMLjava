@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE books SYSTEM "books.dtd">
 <books>
     <book id="bk1">
         <author>Ник Морган</author>
         <title>JavaScript для детей. Самоучитель по программированию</title>
-        <genre>Программирование для детей</genre>
+        <genre>Компьютерная литература</genre>
         <price>399</price>
         <publish_date>2016-12-02</publish_date>
         <description>Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt.
@@ -12,7 +13,7 @@
     <book id="bk2">
         <author>Дэвид Флэнаган</author>
         <title>JavaScript. Подробное руководство. 6-е издание</title>
-        <genre>Компьютерная справочная литература</genre>
+        <genre>Компьютерная литература</genre>
         <price>830</price>
         <publish_date>2017-07-31</publish_date>
         <description>Шестое издание бестселлера «JavaScript. Подробное руководство» полностью пересмотрено и дополнено

@@ -1,7 +1,3 @@
-var input, search, pr, result, result_arr, locale_HTML, result_store;
-
-locale_HTML = document.body.innerHTML;   // сохраняем в переменную весь body (Исходный)
-
 //Задание 1
 let inputs = document.getElementsByTagName('input');
 let savePlaceholder
@@ -51,43 +47,86 @@ sorting.addEventListener('click', function () {
     }
 })
 
-function FindOnPage(name, status) {
 
-    input = document.getElementById(name).value; //получаем значение из поля в html
+function FindOnBooks() {
 
-    if (input.length < 3 && status == true) {
+    let input = document.getElementById('text-to-find').value; //получаем значение из поля в html
+    let search = new RegExp(input)
+
+    if (input.length < 3) {
         alert('Для поиска вы должны ввести три или более символов');
-
-        function FindOnPageBack() {
-            document.body.innerHTML = locale_HTML;
-        }   //обнуляем стили
     }
 
     if (input.length >= 3) {
-        //выполняем поиск
-        function FindOnPageGo() {
-            search = '/' + input + '/g';  //делаем из строки регуярное выражение
-            pr = document.body.innerHTML;   // сохраняем в переменную весь body
-            result = pr.match(/>(.*?)</g);  //отсекаем все теги и получаем только текст
-            result_arr = [];   //в этом массиве будем хранить результат работы (подсветку)
-            for (var i = 0; i < result.length; i++) {
-                result_arr[i] = result[i].replace(eval(search), '<span style="background-color:yellow;">' + input + '</span>'); //находим нужные элементы, задаем стиль и сохраняем в новый массив
+        let result_books = [];
+
+        for (let i = 0; i <= books.length; i++) {
+            for (let booksId in books[i]) {
+                let category = books[i][booksId];
+                if (search.test(category))
+                    result_books.push(books[i])
             }
-            for (var i = 0; i < result.length; i++) {
-                pr = pr.replace(result[i], result_arr[i])  //заменяем в переменной с html текст на новый из новогом ассива
-            }
-            document.body.innerHTML = pr;  //заменяем html код
         }
+
+        if (result_books.length > 0) {
+            createPagination(result_books)
+        } else alert('Ничего не найдено!')
+
+    }
+}
+
+//Поиск - запуск по нажатию на enter
+document.getElementById('text-to-find').onkeypress = function (e) {
+    if (e.keyCode === 13) {
+        FindOnBooks()
+    }
+}
+
+//Сортировка по жанрам
+function editGenre(genre) {
+
+    let selectGenre = document.querySelector('#sorting span')
+
+    let result_books = []
+
+    switch (genre) {
+        case 'Все':
+            selectGenre.innerHTML = 'Жанр:'
+            createPagination(books)
+            break
+        case 'Ужасы':
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].genre === genre)
+                    result_books.push(books[i])
+            }
+            selectGenre.innerHTML = genre
+            createPagination(result_books)
+            break
+        case 'Детективы':
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].genre === genre)
+                    result_books.push(books[i])
+            }
+            selectGenre.innerHTML = genre
+            createPagination(result_books)
+            break;
+        case 'Фантастика':
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].genre === genre)
+                    result_books.push(books[i])
+            }
+            selectGenre.innerHTML = genre
+            createPagination(result_books)
+            break
+        case 'Компьютерная литература':
+            for (let i = 0; i < books.length; i++) {
+                console.log('сработало')
+                if (books[i].genre === genre)
+                    result_books.push(books[i])
+            }
+            selectGenre.innerHTML = genre
+            createPagination(result_books)
+            break
     }
 
-    function FindOnPageBack() {
-        document.body.innerHTML = locale_HTML;
-    }   //обнуляем стили
-    if (status) {
-        FindOnPageBack();
-        FindOnPageGo();
-    } //чистим прошлое и Выделяем найденное
-    if (!status) {
-        FindOnPageBack();
-    } //Снимаем выделение
 }

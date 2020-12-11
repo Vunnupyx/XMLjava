@@ -159,7 +159,7 @@ button, input, select, textarea {
     margin: 50px 0 10px 0;
     background: #EFEEE9;
     width: 100%;
-    height: 290px;
+    height: 300px;
     /*display: none;*/
     display: inline-block;
 }
@@ -170,7 +170,7 @@ button, input, select, textarea {
 
 }
 
-.subgenre-list li a {
+.subgenre-list li {
     display: table;
     width: 100%;
     padding-left: 40px;
@@ -181,7 +181,7 @@ button, input, select, textarea {
 
 }
 
-.subgenre-list li a:hover {
+.subgenre-list li:hover {
     border-color: #5e5d64;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgb(159, 159, 159), 0 0 8px rgb(94, 93, 100);
@@ -354,7 +354,7 @@ form label {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(121, 88, 159, 0.6)
 }
 
-.btn-lg {
+.btn-add-book {
     font-size: 18px;
     font-weight: bold;
     color: #fff;

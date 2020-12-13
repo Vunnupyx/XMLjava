@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE books SYSTEM "books.dtd">
 <books>
-    <book id="bk1">
+    <book id="1">
         <author>Ник Морган</author>
         <title>JavaScript для детей. Самоучитель по программированию</title>
         <genre>Компьютерная литература</genre>
@@ -10,7 +10,7 @@
         <description>Эта книга позволит вам погрузиться в программирование и с легкостью освоить JavaScipt.
         </description>
     </book>
-    <book id="bk2">
+    <book id="2">
         <author>Дэвид Флэнаган</author>
         <title>JavaScript. Подробное руководство. 6-е издание</title>
         <genre>Компьютерная литература</genre>

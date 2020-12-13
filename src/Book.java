@@ -10,7 +10,9 @@ public class Book implements Serializable {
     private LocalDate publish_date;
     private String description;
 
-    public Book(){}
+    public Book() {
+    }
+
     public Book(String id, String author, String title, String genre, Double price, LocalDate publish_date, String description) {
         this.id = id;
         this.author = author;
@@ -80,13 +82,13 @@ public class Book implements Serializable {
     @Override
     public String toString() {
         return "Book{" +
-                "id='" + this.id + '\'' +
-                ", author='" + this.author + '\'' +
-                ", title='" + this.title + '\'' +
-                ", genre='" + this.genre + '\'' +
-                ", price='" + this.price + '\'' +
-                ", publish_date='" + this.publish_date + '\'' +
-                ", description='" + this.description + '\'' +
-                '}';
+                "\n id='" + this.id + '\'' +
+                ",\n author='" + this.author + '\'' +
+                ",\n title='" + this.title + '\'' +
+                ",\n genre='" + this.genre + '\'' +
+                ",\n price='" + this.price + '\'' +
+                ",\n publish_date='" + this.publish_date + '\'' +
+                ",\n description='" + this.description + '\'' +
+                "}\n";
     }
 }
